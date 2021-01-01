@@ -18,7 +18,6 @@ package com.google.samples.motionlayoutcodelab
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -79,17 +78,22 @@ private val data = listOf(
         Step7CompletedActivity::class,
         highlight = true
     ),
-    Step("Step 8",
-        "Running motion with code",
-        "Learn how to use MotionLayout to build complex collapsing toolbar animations.",
-        Step8Activity::class
-    ),
-    Step("Completed: Step 8 ",
-        "Implements running motion with code",
-        "Changes applied from step 8",
-        Step8CompletedActivity::class,
-        highlight = true
-    )
+        Step("Step 8",
+                "Running motion with code",
+                "Learn how to use MotionLayout to build complex collapsing toolbar animations.",
+                Step8Activity::class
+        ),
+        Step("Completed: Step 8 ",
+                "Implements running motion with code",
+                "Changes applied from step 8",
+                Step8CompletedActivity::class,
+                highlight = true
+        ),
+        Step("Playground ",
+                "Experiment tings",
+                "Just do whatever you want, I don't care.... I'll just go to sleep (shakespeare)",
+                PlaygroundActivity::class
+        )
 )
 
 class MainActivity : AppCompatActivity() {

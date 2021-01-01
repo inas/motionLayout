@@ -29,6 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutDescription="@xml/step8"
+            android:minHeight="80dp"
+            app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed"
             app:motionDebug="SHOW_PATH">
 
             <ImageView
