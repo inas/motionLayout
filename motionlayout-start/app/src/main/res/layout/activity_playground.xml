@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/body_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/flight_searchresult_widget_selectedsummary"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:elevation="6dp"
+            android:background="@color/primaryDarkColor"
+            android:text="SELECTED SUMMARY"
+            android:gravity="center"
+            tools:visibility="visible" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/flight_searchresult_widget_selectedsummary"
+            app:layout_constraintTop_toBottomOf="@id/flight_searchresult_widget_selectedsummary">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    android:minHeight="50dp"
+                    app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                        android:id="@+id/motion_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layoutDescription="@xml/activity_playground_xml_constraintlayout_scene">
+
+                    <TextView
+                        android:id="@+id/v_installment_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:background="@color/secondaryColor"
+                        android:gravity="center"
+                        android:text="INSTALLMENT (VISIBLE WHEN SCRROLLED TO TOP)"
+                        tools:visibility="visible" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/flight_layout_tab_flexi"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@color/primaryTextColor"
+                            android:elevation="6dp"
+                            android:orientation="horizontal" />
+                    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <TextView
+                    android:id="@+id/flight_searchresult_widget_quickfilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:contentDescription="flight_searchresultregular_widget_quickfilter"
+                    android:minHeight="48dp"
+                    android:text="QUICK FILTER (ALWAYS VISIBLE)"
+                    android:gravity="center"
+                    android:background="@color/design_default_color_primary"
+                    tools:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/flight_layout_search_result_wrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/primaryTextColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_default="wrap"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/flight_view_pager_search_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <FrameLayout
+                            android:id="@+id/flight_layout_container_flexi"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recycler_view_flexi"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clipToPadding="false"
+                                android:paddingBottom="80dp" />
+
+                            <FrameLayout
+                                android:id="@+id/flight_searchresult_layout_message_flexi"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/flight_layout_container_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recycler_view_regular"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clipToPadding="false"
+                                android:paddingBottom="80dp" />
+
+                            <FrameLayout
+                                android:id="@+id/flight_searchresult_layout_message_regular"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </FrameLayout>
+
+                    </androidx.viewpager.widget.ViewPager>
+
+                    <View
+                        android:id="@+id/view_quick_filter_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:layout_height="36dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <ProgressBar
+            android:id="@+id/flight_searchresult_progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:max="10000"
+            android:progress="5"
+            android:layout_below="@id/flight_searchresult_widget_selectedsummary"
+            tools:progress="5000"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+</layout>

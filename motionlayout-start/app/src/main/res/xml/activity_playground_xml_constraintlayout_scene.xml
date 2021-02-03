@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <KeyFrameSet>
+<!--            <KeyAttribute-->
+<!--                motion:framePosition="50"-->
+<!--                motion:motionTarget="@id/flight_layout_tab_flexi">-->
+<!--                <CustomAttribute-->
+<!--                    motion:attributeName="translationY"-->
+<!--                    motion:customDimension="80dp"-->
+<!--                    />-->
+<!--            </KeyAttribute>-->
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/flight_layout_tab_flexi"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"/>
+        <Constraint
+            android:id="@id/v_installment_header"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/flight_layout_tab_flexi"
+            motion:layout_constraintBottom_toBottomOf="parent"/>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/flight_layout_tab_flexi"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"/>
+        <Constraint
+            android:id="@id/v_installment_header"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/flight_layout_tab_flexi"/>
+    </ConstraintSet>
+</MotionScene>
